@@ -1,0 +1,22 @@
+{
+  "name": "loaf-date",
+  "version": "0.1.0",
+  "description": "Easily output the date format or difference.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loafjs/loaf-date.git"
+  },
+  "keywords": [
+    "date"
+  ],
+  "author": "falsy.me <me@falsy.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loafjs/loaf-date/issues"
+  },
+  "homepage": "https://lab.falsy.me"
+}
