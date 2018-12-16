@@ -56,6 +56,18 @@ class Core {
   get S() {
     return this._doubleFigures(this.s);
   }
+
+  get t() {
+  	return this.date.getTime();
+  }
+
+  get w() {
+  	return this.date.getDay();
+  }
+
+  get W() {
+  	return this.w + 1;
+  }
 }
 
 module.exports = Core
