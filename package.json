@@ -1,6 +1,6 @@
 {
   "name": "loaf-date",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Easily output the date format or difference.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "url": "git+https://github.com/loafjs/loaf-date.git"
   },
   "keywords": [
-    "date"
+    "date",
+    "format"
   ],
   "author": "falsy.me <me@falsy.me>",
   "license": "MIT",
