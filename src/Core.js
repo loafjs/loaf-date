@@ -1,7 +1,8 @@
 class Core {
 
   constructor(dateValue) {
-    this.date = typeof dateValue === 'object' ? dateValue : new Date(dateValue);
+    this.date = typeof dateValue === 'undefined' ? new Date() : 
+                typeof dateValue === 'object' ? dateValue : new Date(dateValue);
   }
 
   _doubleFigures(figure) {
@@ -66,7 +67,7 @@ class Core {
   }
 
   get W() {
-  	return this.w + 1;
+  	return this.w === 0 ? 6 : this.w - 1;
   }
 }
 
