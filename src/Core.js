@@ -39,14 +39,19 @@ class Core {
 
   _fourDigitsFigures(figure) {
     const digits = String(figure).length;
-    return digits > 3 ? figure :
-           digits > 2 ? '0' + figure :
-           digits > 1 ? '00' + figure :
-           '000' + figure;
+    return digits > 2 ? figure :
+           digits > 1 ? '0' + figure :
+           '00' + figure;
   }
 
   diffYears(baseTime, targetTime){
-    
+    const bD = new Core(baseTime);
+    const tD = new Core(targetTime);
+    const strBD = Number('' + bD.M + bD.D + bD.H + bD.MN + bD.S + bD.MS);
+    const strTD = Number('' + tD.M + tD.D + tD.H + tD.MN + tD.S + tD.MS);
+    const diffYear = tD.Y - bD.Y;
+    const sign = diffYear < 0 ? 1 : -1;
+    return (sign > 0 && strTD > strBD) || (sign <= 0 && strTD < strBD) ? diffYear + sign : diffYear;
   }
 
   diffMonths(baseTime, targetTime){
