@@ -37,6 +37,14 @@ class Core {
     return figure < 10 ? '0' + figure : figure;
   }
 
+  _fourDigitsFigures(figure) {
+    const digits = String(figure).length;
+    return digits > 3 ? figure :
+           digits > 2 ? '0' + figure :
+           digits > 1 ? '00' + figure :
+           '000' + figure;
+  }
+
   diffYears(baseTime, targetTime){
     
   }
@@ -112,6 +120,14 @@ class Core {
 
   get S() {
     return this._doubleFigures(this.s);
+  }
+  
+  get ms() {
+    return this.date.getMilliseconds();
+  }
+
+  get MS() {
+    return this._fourDigitsFigures(this.ms);
   }
 
   get t() {
