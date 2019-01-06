@@ -25,7 +25,8 @@ class Core {
     this.diffMap = new Map([
       ['years', this.diffYears],
       ['months', this.diffMonths],
-      ['days', this.diffDays],
+      ['weeks', this.diffWeeks],
+      ['days', this.diffDays]
     ]);
   }
 
@@ -39,6 +40,10 @@ class Core {
 
   diffMonths(baseTime, targetTime){
     
+  }
+
+  diffWeeks(baseTime, targetTime) {
+    return parseInt((targetTime - baseTime)/1000/60/60/24/7, 10);
   }
 
   diffDays(baseTime, targetTime) {
