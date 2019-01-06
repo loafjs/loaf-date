@@ -26,7 +26,10 @@ class Core {
       ['years', this.diffYears],
       ['months', this.diffMonths],
       ['weeks', this.diffWeeks],
-      ['days', this.diffDays]
+      ['days', this.diffDays],
+      ['hours', this.diffHours],
+      ['minutes', this.diffMinutes],
+      ['seconds', this.diffSeconds]
     ]);
   }
 
@@ -48,6 +51,18 @@ class Core {
 
   diffDays(baseTime, targetTime) {
     return parseInt((targetTime - baseTime)/1000/60/60/24, 10);
+  }
+
+  diffHours(baseTime, targetTime) {
+    return parseInt((targetTime - baseTime)/1000/60/60, 10);
+  }
+
+  diffMinutes(baseTime, targetTime) {
+    return parseInt((targetTime - baseTime)/1000/60, 10);
+  }
+
+  diffSeconds(baseTime, targetTime) {
+    return parseInt((targetTime - baseTime)/1000, 10);
   }
 
   get y() {
