@@ -21,10 +21,28 @@ class Core {
       [/w/g, this.w],
       [/W/g, this.W]
     ]);
+
+    this.diffMap = new Map([
+      ['years', this.diffYears],
+      ['months', this.diffMonths],
+      ['days', this.diffDays],
+    ]);
   }
 
   _doubleFigures(figure) {
     return figure < 10 ? '0' + figure : figure;
+  }
+
+  diffYears(baseTime, targetTime){
+    
+  }
+
+  diffMonths(baseTime, targetTime){
+    
+  }
+
+  diffDays(baseTime, targetTime) {
+    return parseInt((targetTime - baseTime)/1000/60/60/24, 10);
   }
 
   get y() {
