@@ -55,7 +55,15 @@ class Core {
   }
 
   diffMonths(baseTime, targetTime){
-    
+    const bD = new Core(baseTime);
+    const tD = new Core(targetTime);
+    const strBD = Number('' + bD.D + bD.H + bD.MN + bD.S + bD.MS);
+    const strTD = Number('' + tD.D + tD.H + tD.MN + tD.S + tD.MS);
+    const diffYear = tD.Y - bD.Y;
+    const diffMonth = tD.M - bD.M;
+    const sign = diffYear < 0 ? 1 : diffMonth < 0 ? 1 : -1;
+    const diffSignMonth = (sign > 0 && strTD > strBD) || (sign <= 0 && strTD < strBD) ? diffMonth + sign : diffMonth;
+    return diffYear === 0 ? diffSignMonth : diffSignMonth + (diffYear * 12);
   }
 
   diffWeeks(baseTime, targetTime) {
