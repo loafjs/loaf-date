@@ -7,6 +7,8 @@ class Core {
     this.formatMap = new Map([
       [/mn/g, this.mn],
       [/MN/g, this.MN],
+      [/ms/g, this.ms],
+      [/MS/g, this.MS],
       [/y/g, this.y],
       [/Y/g, this.Y],
       [/m/g, this.m],
