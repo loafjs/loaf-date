@@ -1,6 +1,6 @@
 {
   "name": "loaf-date",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Easily output the date format or difference.",
   "main": "index.js",
   "scripts": {
