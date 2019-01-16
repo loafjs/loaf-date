@@ -7,18 +7,22 @@ class LoafDate extends Core {
   }
   
   format(dateFormat) {
-  	this.formatMap.forEach((value, key) => {
-  		dateFormat = dateFormat.replace(key, value);
-  	});
-  	return dateFormat;
+    this.formatMap.forEach((value, key) => {
+      dateFormat = dateFormat.replace(key, value);
+    });
+    return dateFormat;
   }
 
   diff(date, type) {
-  	return this.diffMap.get(type)(this.t, date.t);
+    return this.diffMap.get(type)(this.t, date.t);
+  }
+
+  add(value, type) {
+    return this.appMap.get(type)(this.t, value);
   }
 
 }
 
 module.exports = (dateValue) => {
-	return new LoafDate(dateValue);
+  return new LoafDate(dateValue);
 }

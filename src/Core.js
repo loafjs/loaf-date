@@ -33,6 +33,16 @@ class Core {
       ['minutes', this.diffMinutes],
       ['seconds', this.diffSeconds]
     ]);
+
+    this.addMap = new Map([
+      ['years', this.addYears],
+      ['months', this.addMonths],
+      ['weeks', this.addWeeks],
+      ['days', this.addDays],
+      ['hours', this.addHours],
+      ['minutes', this.addMinutes],
+      ['seconds', this.addSeconds]
+    ]);
   }
 
   _doubleFigures(figure) {
@@ -44,6 +54,16 @@ class Core {
     return digits > 2 ? figure :
            digits > 1 ? '0' + figure :
            '00' + figure;
+  }
+
+  addYears(baseTime, addValue) {
+    const bD = new Core(baseTime);
+    return new Core((bD.Y + addValue), (bD.M - 1), bD.D, bD.H, bD.MN, bD.S, bD.MS);
+  }
+
+  addMonths(baseTime, addValue) {
+    const bD = new Core(baseTime);
+    return new Core(bD.Y, (bD.M - 1 + addValue), bD.D, bD.H, bD.MN, bD.S, bD.MS);
   }
 
   diffYears(baseTime, targetTime){
@@ -146,15 +166,15 @@ class Core {
   }
 
   get t() {
-  	return this.date.getTime();
+    return this.date.getTime();
   }
 
   get w() {
-  	return this.date.getDay();
+    return this.date.getDay();
   }
 
   get W() {
-  	return this.w === 0 ? 6 : this.w - 1;
+    return this.w === 0 ? 6 : this.w - 1;
   }
 }
 
