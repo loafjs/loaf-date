@@ -1,9 +1,12 @@
 class Core {
 
   constructor(dateValue) {
+    this._setCoreData(dateValue);
+  }
+
+  _setCoreData(dateValue) {
     this.date = typeof dateValue === 'undefined' ? new Date() : 
                 typeof dateValue === 'object' ? dateValue : new Date(dateValue);
-                
     this.formatMap = new Map([
       [/mn/g, this.mn],
       [/MN/g, this.MN],
@@ -23,7 +26,15 @@ class Core {
       [/w/g, this.w],
       [/W/g, this.W]
     ]);
-
+    this.addMap = new Map([
+      ['years', this.addYears],
+      ['months', this.addMonths],
+      ['weeks', this.addWeeks],
+      ['days', this.addDays],
+      ['hours', this.addHours],
+      ['minutes', this.addMinutes],
+      ['seconds', this.addSeconds]
+    ]);
     this.diffMap = new Map([
       ['years', this.diffYears],
       ['months', this.diffMonths],
@@ -44,6 +55,48 @@ class Core {
     return digits > 2 ? figure :
            digits > 1 ? '0' + figure :
            '00' + figure;
+  }
+
+  addYears(thisLD, addValue) {
+    const bD = new Core(thisLD.t);
+    thisLD._setCoreData(new Date((bD.Y + addValue), (bD.m - 1), bD.d, bD.h, bD.mn, bD.s, bD.ms));
+    return thisLD;
+  }
+
+  addMonths(thisLD, addValue) {
+    const bD = new Core(thisLD.t);
+    thisLD._setCoreData(new Date(bD.Y, (bD.m - 1 + addValue), bD.d, bD.h, bD.mn, bD.S, bD.ms));
+    return thisLD;
+  }
+
+  addWeeks(thisLD, addValue) {
+    const time = thisLD.t + (addValue * 7 * 24 * 60 * 60 * 1000);
+    thisLD._setCoreData(time);
+    return thisLD;
+  }
+
+  addDays(thisLD, addValue) {
+    const time = thisLD.t + (addValue * 24 * 60 * 60 * 1000);
+    thisLD._setCoreData(time);
+    return thisLD;
+  }
+
+  addHours(thisLD, addValue) {
+    const time = thisLD.t + (addValue * 60 * 60 * 1000);
+    thisLD._setCoreData(time);
+    return thisLD;
+  }
+
+  addMinutes(thisLD, addValue) {
+    const time = thisLD.t + (addValue * 60 * 1000);
+    thisLD._setCoreData(time);
+    return thisLD;
+  }
+
+  addSeconds(thisLD, addValue) {
+    const time = thisLD.t + (addValue * 1000);
+    thisLD._setCoreData(time);
+    return thisLD;
   }
 
   diffYears(baseTime, targetTime){
@@ -146,15 +199,15 @@ class Core {
   }
 
   get t() {
-  	return this.date.getTime();
+    return this.date.getTime();
   }
 
   get w() {
-  	return this.date.getDay();
+    return this.date.getDay();
   }
 
   get W() {
-  	return this.w === 0 ? 6 : this.w - 1;
+    return this.w === 0 ? 6 : this.w - 1;
   }
 }
 

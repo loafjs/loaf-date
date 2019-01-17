@@ -1,5 +1,9 @@
 # Loaf Date [![npm](https://img.shields.io/npm/v/loaf-date.svg)](https://www.npmjs.com/package/loaf-date) [![npm](https://img.shields.io/npm/dm/loaf-date.svg)](https://www.npmjs.com/package/loaf-date)
-Easily output the date format or difference.
+Easily output the date format or difference.  
+This code is ES6+ grammar. We recommend using it in a library such as [Babel](https://github.com/babel/babel) for use in a browser.
+
+## Notice
+There are many disadvantages. I look forward to advice and code review. Thank you.
 
 ## Install
 ```
@@ -23,6 +27,14 @@ const targetDate = LD('2019-02-01 00:00:00');
 
 console.log(baseDate.diff(targetDate, 'months'));
 // 1
+```
+
+```js
+const LD = require('loaf-date');
+
+const addDays = LD('2019-01-01').add(5, 'days').format('Y-M-D');
+console.log(addDays);
+// 2019-01-06
 ```
 
 ## Format
@@ -90,6 +102,27 @@ LD('2018-01-01 05:05:05').diff(LD('2018-01-01 10:05:05'), 'hours'); // 5
 LD('2018-01-01 05:05:05').diff(LD('2018-01-01 05:10:06'), 'minutes'); // 5
 // seconds
 LD('2018-01-01 05:05:05').diff(LD('2018-01-01 05:05:10'), 'seconds'); // 5
+```
+
+## Add a date
+```js
+// years
+LD('2019-01-01').add(-1, 'years').format('Y-M-D'); // 2018-01-01
+// months
+LD('2019-01-01').add(-1, 'months').format('Y-M-D'); // 2018-12-01
+// weeks
+LD('2019-01-01').add(2, 'weeks').format('Y-M-D'); // 2019-01-15
+// days
+LD('2019-01-01').add(5, 'days').format('Y-M-D'); // 2019-01-06
+// hours
+LD('2019-01-01 10:00:00').add(1, 'hours').format('Y-M-D H:MN:S'); // 2019-01-01 11:00:00
+// minutes
+LD('2019-01-01 10:00:00').add(30, 'minutes').format('Y-M-D H:MN:S'); // 2019-01-01 10:30:00
+// seconds
+LD('2019-01-01 10:00:00').add(30, 'seconds').format('Y-M-D H:MN:S'); // 2019-01-01 10:00:30
+
+// add multiple different keys
+LD('2019-01-01 04:05:06').add(-1, 'years').add(5, 'days').format('Y-M-D')); // 2018-01-06
 ```
 
 ## Example
