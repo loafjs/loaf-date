@@ -13,12 +13,12 @@ class LoafDate extends Core {
     return dateFormat;
   }
 
-  diff(date, type) {
-    return this.diffMap.get(type)(this.t, date.t);
-  }
-
   add(value, type) {
     return this.appMap.get(type)(this.t, value);
+  }
+
+  diff(date, type) {
+    return this.diffMap.get(type)(this.t, date.t);
   }
 
 }

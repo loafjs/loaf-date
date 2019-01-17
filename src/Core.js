@@ -24,16 +24,6 @@ class Core {
       [/W/g, this.W]
     ]);
 
-    this.diffMap = new Map([
-      ['years', this.diffYears],
-      ['months', this.diffMonths],
-      ['weeks', this.diffWeeks],
-      ['days', this.diffDays],
-      ['hours', this.diffHours],
-      ['minutes', this.diffMinutes],
-      ['seconds', this.diffSeconds]
-    ]);
-
     this.addMap = new Map([
       ['years', this.addYears],
       ['months', this.addMonths],
@@ -42,6 +32,16 @@ class Core {
       ['hours', this.addHours],
       ['minutes', this.addMinutes],
       ['seconds', this.addSeconds]
+    ]);
+
+    this.diffMap = new Map([
+      ['years', this.diffYears],
+      ['months', this.diffMonths],
+      ['weeks', this.diffWeeks],
+      ['days', this.diffDays],
+      ['hours', this.diffHours],
+      ['minutes', this.diffMinutes],
+      ['seconds', this.diffSeconds]
     ]);
   }
 
@@ -64,6 +64,31 @@ class Core {
   addMonths(baseTime, addValue) {
     const bD = new Core(baseTime);
     return new Core(bD.Y, (bD.M - 1 + addValue), bD.D, bD.H, bD.MN, bD.S, bD.MS);
+  }
+
+  addWeeks(baseTime, addValue) {
+    const time = baseTime + (addValue * 7 * 24 * 60 * 60 * 1000);
+    return new Core(time);
+  }
+
+  addDays(baseTime, addValue) {
+    const time = baseTime + (addValue * 24 * 60 * 60 * 1000);
+    return new Core(time);
+  }
+
+  addHours(baseTime, addValue) {
+    const time = baseTime + (addValue * 60 * 60 * 1000);
+    return new Core(time);
+  }
+
+  addMinutes(baseTime, addValue) {
+    const time = baseTime + (addValue * 60 * 1000);
+    return new Core(time);
+  }
+
+  addSeconds(baseTime, addValue) {
+    const time = baseTime + (addValue * 1000);
+    return new Core(time);
   }
 
   diffYears(baseTime, targetTime){
