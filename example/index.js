@@ -2,6 +2,8 @@ const LD = require('../index');
 
 console.log(LD(new Date()).Y);
 
+console.log(LD('2018-12-17'));
+
 console.log(LD('2018-12-17').Y);
 
 console.log(LD().format('Y-M-D H:MN:S'));
@@ -29,4 +31,9 @@ const targetDate = LD('2019-02-01 00:00:00');
 console.log(baseDate.diff(targetDate, 'months'));
 
 console.log(LD('2019-01-03 04:05:06').format('ms')) // ex. 0
+
 console.log(LD('2019-01-03 04:05:06').format('MS')) // ex. 000
+
+console.log(LD('2019-01-01 04:05:06').add(-1, 'years').format('Y-M-D'));
+
+console.log(LD('2019-01-01 04:05:06').add(-1, 'years').add(5, 'days').format('Y-M-D'));

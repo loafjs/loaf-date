@@ -14,7 +14,7 @@ class LoafDate extends Core {
   }
 
   add(value, type) {
-    return this.appMap.get(type)(this.t, value);
+    return this.addMap.get(type)(this, value);
   }
 
   diff(date, type) {
