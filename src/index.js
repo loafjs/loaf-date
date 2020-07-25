@@ -1,4 +1,4 @@
-const Core = require('./src/Core');
+import Core from './Core';
 
 class LoafDate extends Core {
 
@@ -23,6 +23,6 @@ class LoafDate extends Core {
 
 }
 
-module.exports = (dateValue) => {
+export default (dateValue) => {
   return new LoafDate(dateValue);
-}
+};

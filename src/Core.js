@@ -211,4 +211,4 @@ class Core {
   }
 }
 
-module.exports = Core
+export default Core;

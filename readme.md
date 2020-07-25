@@ -1,9 +1,5 @@
 # Loaf Date [![npm](https://img.shields.io/npm/v/loaf-date.svg)](https://www.npmjs.com/package/loaf-date) [![npm](https://img.shields.io/npm/dm/loaf-date.svg)](https://www.npmjs.com/package/loaf-date)
 Easily output the date format or difference.  
-This code is ES6+ grammar. We recommend using it in a library such as [Babel](https://github.com/babel/babel) for use in a browser.
-
-## Notice
-There are many disadvantages. I look forward to advice and code review. Thank you.
 
 ## Install
 ```
