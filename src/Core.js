@@ -4,9 +4,29 @@ class Core {
     this._setCoreData(dateValue);
   }
 
+  _setStringDate(strDate) {
+    if(/\d{0,4}-\d{0,2}-\d{0,2}/.test(strDate)) {
+      const year = Number(strDate.split('-')[0]);
+      const month = Number(strDate.split('-')[1]);
+      const day = Number(strDate.split('-')[2].substr(0, 2));
+
+      if(/\d{0,4}-\d{0,2}-\d{0,2}\ \d{0,2}\:\d{0,2}\:\d{0,2}/.test(strDate)) {
+        const hour = Number(strDate.split(' ')[1].split(':')[0]);
+        const minute = Number(strDate.split(' ')[1].split(':')[1]);
+        const second = Number(strDate.split(' ')[1].split(':')[2]);
+        return new Date(year, month-1, day, hour, minute, second);
+      }
+      
+      return new Date(year, month-1, day);
+    }
+    
+    return new Date(strDate);
+  }
+
   _setCoreData(dateValue) {
     this.date = typeof dateValue === 'undefined' ? new Date() : 
-                typeof dateValue === 'object' ? dateValue : new Date(dateValue);
+                typeof dateValue === 'number' ? new Date(dateValue) :
+                this._setStringDate(dateValue);
     this.formatMap = new Map([
       [/mn/g, this.mn],
       [/MN/g, this.MN],
