@@ -8,7 +8,7 @@ npm install --save loaf-date
 
 ## How to use
 ```js
-const LD = require('loaf-date');
+import LD from 'loaf-date';
 
 const dateForamt = LD().format('Y-M-D H:MN:S');
 console.log(dateForamt);
@@ -16,7 +16,7 @@ console.log(dateForamt);
 ```
 
 ```js
-const LD = require('loaf-date');
+import LD from 'loaf-date';
 
 const baseDate = LD('2019-01-01 00:00:00');
 const targetDate = LD('2019-02-01 00:00:00');
@@ -26,7 +26,7 @@ console.log(baseDate.diff(targetDate, 'months'));
 ```
 
 ```js
-const LD = require('loaf-date');
+import LD from 'loaf-date';
 
 const addDays = LD('2019-01-01').add(5, 'days').format('Y-M-D');
 console.log(addDays);
@@ -35,7 +35,7 @@ console.log(addDays);
 
 ## Format
 ```js
-const LD = require('loaf-date');
+import LD from 'loaf-date';
 
 // year
 LD('2019-01-03 04:05:06').format('y'); // 19
@@ -82,7 +82,7 @@ LD('2019-01-03 04:05:06').format('MS') // ex. 000
 
 ## Difference
 ```js
-const LD = require('loaf-date');
+import LD from 'loaf-date';
 
 // yesrs
 LD('2019-01-01 05:05:05').diff(LD('2018-01-01 05:05:05'), 'years') // -1
@@ -119,15 +119,6 @@ LD('2019-01-01 10:00:00').add(30, 'seconds').format('Y-M-D H:MN:S'); // 2019-01-
 
 // add multiple different keys
 LD('2019-01-01 04:05:06').add(-1, 'years').add(5, 'days').format('Y-M-D')); // 2018-01-06
-```
-
-## Example
-You can go to the 'example' directory, install the example source, and check the run.
-```
-$ cd ./example
-```
-```
-$ node index
 ```
 
 ## License
